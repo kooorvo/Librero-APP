@@ -31,6 +31,14 @@ for dic in donnees_chargees:
     # on l'add à la liste
     livres_charges.append(un_livre)
 
+def sauvegarder():
+  donnees_maj = []
+  for un_livre in livres_charges:
+    nvdic = un_livre.to_dic()
+    donnees_maj.append(nvdic)
+  with open("src/data.json", "w", encoding="utf-8") as fichier:
+    json.dump(donnees_maj, fichier, indent=4) 
+
 
 # ---UI---
 #for i in livres_charges:
@@ -48,7 +56,8 @@ while True:
       f"3. Rendre un livre\n"
       f"4. Noter un livre\n"
       f"5. Ajouter un livre\n"
-      f"6. Quitter"
+      f"6. Supprimer un livre\n"
+      f"7. Quitter"
       )
 
   rep = input("Que souhaitez-vous faire ? (mettre le numéro de l'option) ")
@@ -69,7 +78,7 @@ while True:
         if not trouve:
           print(f"{sep}\nLe livre {livre} n'existe pas.")
 
-        print(sep)
+        print(f"{sep}")
 
       case "2" :
         print(f"{sep}")
@@ -82,11 +91,12 @@ while True:
               print(f"{sep}")
               print(un_livre.emprunter())
               trouve = True
+              sauvegarder()
               break
         if not trouve:
             print(f"{sep}\nLe livre {livre} n'existe pas.")
 
-        print(sep)
+        print(f"{sep}")
 
       case "3" :
         print(f"{sep}")
@@ -99,11 +109,12 @@ while True:
               print(f"{sep}")
               print(un_livre.rendre())
               trouve = True
+              sauvegarder()
               break
         if not trouve:
             print(f"{sep}\nLe livre {livre} n'existe pas.")
 
-        print(sep)
+        print(f"{sep}")
 
       case "4" :
         print(f"{sep}")
@@ -119,27 +130,53 @@ while True:
               assert note<=5 and note>=0, "La note doit être comprise entre 0 et 5"
               print(un_livre.ajouter_note(note))
               trouve = True
+              sauvegarder()
               break
         if not trouve:
             print(f"{sep}\nLe livre {livre} n'existe pas.")
 
-        print(sep)
+        print(f"{sep}")
 
       case "5":
+        print(f"{sep}")
         titre = input("Entrer le titre du livre : ")
         auteur = input("Entrer le nom de l'auteur du livre : ")
         categorie = input("Entrer la categorie du livre : ")
         isbn = input("Entrer l'isbn du livre : ")
-        nvLivre = Livre(titre, auteur, categorie, isbn)
-        livres_charges.append(nvLivre)
+        existe = False 
+        for un_livre in livres_charges :
+          if un_livre.isbn == isbn:
+            existe = True
+            print(f"{sep}\nCet isbn ({isbn}) existe déjà.")
+            sauvegarder()
+            break
+        if not existe:
+          nvLivre = Livre(titre, auteur, categorie, isbn)
+          livres_charges.append(nvLivre)
+
+        print(sep)
 
       case "6":
+        isbn=input("Entrer l'ISBN du livre à supprimer : ")
+        trouve=False
+        for un_livre in livres_charges:
+          if un_livre.isbn == isbn:
+            trouve = True
+            cinput = input(f"Confirmer la suppression du livre {un_livre.titre} (ISBN: {isbn}) ? (O/N) ").lower()
+            if cinput == "o":
+              livres_charges.remove(un_livre)
+              sauvegarder()
+              print ("Suppression effectuée")
+            else:
+              print("Suppression annulée.")
+            break
+        if not trouve:
+          print(f"Aucun livre trouvé avec l'ISBN {isbn}.")
+
+        print(f"{sep}")
+
+      case "7":
         break
 
 # on met à jour le fichier JSON
-donnees_maj = []
-for un_livre in livres_charges:
-  nvdic = un_livre.to_dic()
-  donnees_maj.append(nvdic)
-with open("src/data.json", "w", encoding="utf-8") as fichier:
-  json.dump(donnees_maj, fichier, indent=4) 
+# en fait on l'a déplacé dans la fonction sauvegarder tout en haut pour pouvoir sauvé en temps réel depuis le match/case
