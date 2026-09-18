@@ -39,69 +39,102 @@ for dic in donnees_chargees:
 #    # on crée un séparateur
 #    print("-"*20)
 
-print(f"1. Afficher les informations d'un livre\n"
+sep = "-"*20
+
+while True:
+  # on déplace le menu dans le while pour éviter la boucle infine, rep se remet à 0
+  print(f"1. Afficher les informations d'un livre\n"
       f"2. Emprunter un livre\n"
       f"3. Rendre un livre\n"
-      f"4. Noter un livre")
+      f"4. Noter un livre\n"
+      f"5. Ajouter un livre\n"
+      f"6. Quitter"
+      )
 
-rep = input("Que souhaitez-vous faire ? (mettre le numéro de l'option) ")
-
-match rep:
-    case "1":
+  rep = input("Que souhaitez-vous faire ? (mettre le numéro de l'option) ")
+  match rep:
+      case "1":
+        print(f"{sep}")
         livre = input("Quel livre cherchez-vous ? ")
         livre = livre.lower()
         trouve = False
         
         for un_livre in livres_charges:
             if un_livre.titre.lower() == livre:
+                print(f"{sep}")
                 print(un_livre.afficher_infos())
                 trouve = True
                 break
         # si on ne trouve pas le livre
         if not trouve:
-          print(f"Le livre {livre} n'existe pas.")
+          print(f"{sep}\nLe livre {livre} n'existe pas.")
 
-    case "2" :
+        print(sep)
+
+      case "2" :
+        print(f"{sep}")
         livre = input("Quel livre cherchez-vous ? ")
         livre = livre.lower()
         trouve = False
         
         for un_livre in livres_charges:
           if un_livre.titre.lower() == livre:
+              print(f"{sep}")
               print(un_livre.emprunter())
               trouve = True
               break
         if not trouve:
-            print(f"Le livre {livre} n'existe pas.")
+            print(f"{sep}\nLe livre {livre} n'existe pas.")
 
-    case "3" :
-            livre = input("Quel livre cherchez-vous ? ")
-            livre = livre.lower()
-            trouve = False
-            
-            for un_livre in livres_charges:
-              if un_livre.titre.lower() == livre:
-                  print(un_livre.rendre())
-                  trouve = True
-                  break
-            if not trouve:
-                print(f"Le livre {livre} n'existe pas.")
+        print(sep)
 
-    case "4" :
-            livre = input("Quel livre cherchez-vous ? ")
-            livre = livre.lower()
-            trouve = False
-            
-            for un_livre in livres_charges:
-              if un_livre.titre.lower() == livre:
-                  note = input(f"Quelle note souhaitez-vous attribuer au livre {livre} ? (/5) ")
-                  note = float(note)
-                  assert note<=5 and note>=0, "La note doit être comprise entre 0 et 5"
-                  print(un_livre.ajouter_note(note))
-                  trouve = True
-                  break
-            if not trouve:
-                print(f"Le livre {livre} n'existe pas.")
+      case "3" :
+        print(f"{sep}")
+        livre = input("Quel livre cherchez-vous ? ")
+        livre = livre.lower()
+        trouve = False
+        
+        for un_livre in livres_charges:
+          if un_livre.titre.lower() == livre:
+              print(f"{sep}")
+              print(un_livre.rendre())
+              trouve = True
+              break
+        if not trouve:
+            print(f"{sep}\nLe livre {livre} n'existe pas.")
+
+        print(sep)
+
+      case "4" :
+        print(f"{sep}")
+        livre = input("Quel livre cherchez-vous ? ")
+        livre = livre.lower()
+        trouve = False
+        
+        for un_livre in livres_charges:
+          if un_livre.titre.lower() == livre:
+              print(f"{sep}")
+              note = input(f"Quelle note souhaitez-vous attribuer au livre {livre} ? (/5) ")
+              note = float(note)
+              assert note<=5 and note>=0, "La note doit être comprise entre 0 et 5"
+              print(un_livre.ajouter_note(note))
+              trouve = True
+              break
+        if not trouve:
+            print(f"{sep}\nLe livre {livre} n'existe pas.")
+
+        print(sep)
+
+      case "5":
+        titre = input("Entrer le titre du livre : ")
+        auteur = input("Entrer le nom de l'auteur du livre : ")
+        categorie = input("Entrer la categorie du livre : ")
+        isbn = input("Entrer l'isbn du livre : ")
+        nvLivre = Livre(titre, auteur, categorie, isbn)
+        livres_charges.append(nvLivre)
+
+      case "6":
+        break
 
 # on met à jour le fichier JSON
 donnees_maj = []

@@ -30,6 +30,7 @@ class Livre():
 
     def ajouter_note(self, eval):
         self.note.append(eval)
+        return (f"Vous avez attribué la note de {eval} au livre {self.titre}")
 
     def calculer_moyenne(self):
         if not self.note:

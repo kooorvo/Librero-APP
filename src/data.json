@@ -17,7 +17,18 @@
         "emprunts": 0,
         "notes": [
             5.0,
-            4.6
+            4.6,
+            5.0,
+            3.0
         ]
+    },
+    {
+        "titre": "Harry Potter \u00e0 l'\u00e9cole des sorciers",
+        "auteur": "J.K. Rowling",
+        "categorie": "fantastisque",
+        "disponible": true,
+        "isbn": "978-2070584628",
+        "emprunts": 0,
+        "notes": []
     }
 ]
