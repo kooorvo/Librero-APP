@@ -1,0 +1,23 @@
+[
+    {
+        "titre": "Le Petit Prince",
+        "auteur": "Antoine de Saint-Exup\u00e9ry",
+        "categorie": "conte",
+        "disponible": true,
+        "isbn": "9783140464079",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "1984",
+        "auteur": "George Orwell",
+        "categorie": "fiction",
+        "disponible": true,
+        "isbn": "978-2070368228",
+        "emprunts": 0,
+        "notes": [
+            5.0,
+            4.6
+        ]
+    }
+]
