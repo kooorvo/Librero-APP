@@ -15,7 +15,7 @@ Deux versions du logiciel existe :
 - _Librero CLI_, qui s'utilise intégralement dans l'interpréteur de commande (dit *cmd*)
 - _Librero GUI_, qui possède une interface utilisateur. (en "travaux")
 
-Vous pouvez retrouver l'historique des modifications dans le fichier `patch_note.md` ()
+Vous pouvez retrouver l'historique des modifications dans le fichier `patch_note.md` (https://github.com/kooorvo/Livres/blob/a7b6a19865f4ae445fddadebbdcb0e19629b6ffd/patch_note.md)
 
 <br>
 
@@ -25,7 +25,7 @@ Vous pouvez retrouver l'historique des modifications dans le fichier `patch_note
 <br>
 <br>
 <br><br>
-Une ia générative à été utilisée dans la création de cette application, notamment pour coder l'implémentation de l'interface utilisateur.
+Une ia générative à été utilisée dans la création de cette application, notamment pour coder l'implémentation de l'interface utilisateur (uniquement le partie recherche pour que je puisse comprendre le fonctionnement de la librairie) et pour corriger certains bugs.
 <br><br>
 
 ###### Made by Koorvo

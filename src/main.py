@@ -42,15 +42,96 @@ def sauvegarder():
 
 # ---GUI---
 
-# génée=ré par ia(gemini)
+# généré par ia(gemini)
 
 # Configuration du thème
 ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("blue")
 
+# Fenêtre secondaires
+
+class ToplevelWindowEmprunt(ctk.CTkToplevel):
+  def __init__(self):
+    super().__init__()
+    self.geometry("450x300")
+
+    titre = ctk.CTkLabel(self, text="Emprunter un livre", font=ctk.CTkFont(size=18, weight="bold"))
+    titre.pack(pady=20)
+
+    self.titreISBN = ctk.CTkEntry(self, placeholder_text="Titre ou ISBN :", width=300, height=50)
+    self.titreISBN.pack(pady=10)
+
+    confirmBtn = ctk.CTkButton(self, text="Confirmer", width=300, height=50, command=self.emprunterLivre)
+    confirmBtn.pack(pady=10)
+
+    self.resultatText = ctk.CTkLabel(self, text="")
+    self.resultatText.pack(pady=10)
+
+  def emprunterLivre(self):
+    existe = False
+    titreISBNinput = self.titreISBN.get()
+
+    for un_livre in livres_charges:
+      if un_livre.isbn == titreISBNinput or un_livre.titre.lower() == titreISBNinput:
+        existe = True
+        if un_livre.disponible :
+          un_livre.disponible = False
+          sauvegarder()
+          self.resultatText.configure(text=f"Le livre {un_livre.titre} à été emprunté.")
+        else:
+          self.resultatText.configure(text=f"Le livre {un_livre.titre} est indisponible.")
+        break
+
+    if not existe:
+      self.resultatText.configure(text=f"Le livre {un_livre.titre} n'existe pas.")
+
+
+
+class ToplevelWindowRendu(ctk.CTkToplevel):
+  def __init__(self):
+    super().__init__()
+    self.geometry("450x300")
+
+    titre = ctk.CTkLabel(self, text="Rendre un livre", font=ctk.CTkFont(size=18, weight="bold"))
+    titre.pack(pady=20)
+
+    # ON MET SELF CAR ON S4EN SERT DANS LA FCT RENDRELIVRE !!!!
+    self.titreISBN = ctk.CTkEntry(self, placeholder_text="Titre ou ISBN :", width=300, height=50)
+    self.titreISBN.pack(pady=10)
+
+    confirmBtn = ctk.CTkButton(self, text="Confirmer", width=300, height=50, command=self.rendreLivre)
+    confirmBtn.pack(pady=10)
+
+    self.resultatText = ctk.CTkLabel(self, text="")
+    self.resultatText.pack(pady=10)
+
+  def rendreLivre(self):
+    existe = False
+    emprunte = False
+    titreISBNinput = self.titreISBN.get()
+
+    for un_livre in livres_charges:
+      if un_livre.isbn == titreISBNinput or un_livre.titre.lower() == titreISBNinput:
+        existe = True
+        if not un_livre.disponible :
+          emprunte = True
+          un_livre.disponible = True
+          sauvegarder()
+          self.resultatText.configure(text=f"Le livre {un_livre.titre} à été rendu.")
+        else:
+          self.resultatText.configure(text=f"Le livre {un_livre.titre} est déjà disponible.")
+        break
+
+    if not existe:
+      self.resultatText.configure(text=f"Le livre {un_livre.titre} n'existe pas.")
+
+# App principale
+
 class App(ctk.CTk):
     def __init__(self):
         super().__init__()
+
+        self.toplevel_window = None
 
         # --- Configuration de la fenêtre ---
         self.title("Librero")
@@ -73,11 +154,17 @@ class App(ctk.CTk):
         self.btn_chercher = ctk.CTkButton(self.sidebar_frame, text="Rechercher", command=self.afficher_recherche)
         self.btn_chercher.grid(row=1, column=0, padx=20, pady=10)
 
+        self.btn_emprunts = ctk.CTkButton(self.sidebar_frame, text="Emprunts", command=self.afficher_emprunts)
+        self.btn_emprunts.grid(row=2, column=0, padx=20, pady=10)
+
         self.btn_ajouter = ctk.CTkButton(self.sidebar_frame, text="Ajouter un livre", command=self.afficher_ajout)
-        self.btn_ajouter.grid(row=2, column=0, padx=20, pady=10)
+        self.btn_ajouter.grid(row=3, column=0, padx=20, pady=10)        
 
         self.btn_supprimer = ctk.CTkButton(self.sidebar_frame, text="Supprimer", command=self.afficher_suppression)
-        self.btn_supprimer.grid(row=3, column=0, padx=20, pady=10)
+        self.btn_supprimer.grid(row=4, column=0, padx=20, pady=10)
+
+        self.switchTheme = ctk.CTkSwitch(self.sidebar_frame, text="Mode clair", command=self.switchTheme, onvalue=1, offvalue=0)
+        self.switchTheme.grid(row=4, column=0, padx=20, pady=10)
 
         # --- Zone Principale (Main View) ---
         self.main_frame = ctk.CTkFrame(self, corner_radius=10)
@@ -106,6 +193,18 @@ class App(ctk.CTk):
 
         self.label_resultat = ctk.CTkLabel(self.main_frame, text="")
         self.label_resultat.pack(pady=20)
+
+    def afficher_emprunts(self):
+      self.nettoyer_main_frame()
+
+      titre = ctk.CTkLabel(self.main_frame, text="Gestion des emprunts", font=ctk.CTkFont(size=18, weight="bold"))
+      titre.pack(pady=20)
+
+      btn_ajouterEmprunt = ctk.CTkButton(self.main_frame, text="Emprunter un livre", command=self.ajouter_emprunt, width=300, height=50)
+      btn_ajouterEmprunt.pack(pady=10)
+
+      btn_ajouterRendu = ctk.CTkButton(self.main_frame, text="Rendre un livre", command=self.ajouter_rendu, width=300, height=50)
+      btn_ajouterRendu.pack(pady=10)
 
     def afficher_ajout(self):
         self.nettoyer_main_frame()
@@ -157,6 +256,19 @@ class App(ctk.CTk):
           else :
             self.label_resultat.configure(text="")
 
+    def ajouter_emprunt(self):
+      # On appelle la petite fenêtre créée avant la class App
+      if self.toplevel_window is None or not self.toplevel_window.winfo_exists(): #si la fenêtre existe pas ou qu'elle es fermée on l'ouvre
+        self.toplevel_window = ToplevelWindowEmprunt()
+      else:
+        self.toplevel_window.focus() #sinon on focus dessus
+
+    def ajouter_rendu(self):
+      if self.toplevel_window is None or not self.toplevel_window.winfo_exists(): #si la fenêtre existe pas ou qu'elle es fermée on l'ouvre
+        self.toplevel_window = ToplevelWindowRendu()
+      else:
+        self.toplevel_window.focus()
+
     def ajouter_btn(self):
       infoTitre = self.titre_input.get()
       infoAuteur = self.auteur_input.get()
@@ -196,6 +308,13 @@ class App(ctk.CTk):
 
       if not existe:
         self.ajout_resultat.configure(text=f"Le livre {isbnTitre} n'existe pas.")
+
+    def switchTheme(self):
+      val = self.switchTheme.get()
+      if val:
+        ctk.set_appearance_mode("light")
+      else : 
+        ctk.set_appearance_mode("dark")
 
 if __name__ == "__main__":
     app = App()

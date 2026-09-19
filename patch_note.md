@@ -4,7 +4,7 @@
    **Date**       | **Étape**                                      | **Détails**                                                                 |
  |----------------|------------------------------------------------|-----------------------------------------------------------------------------|
  18/09/26 | Début du projet, version CLI fonctionnelle | Les 6 fonctionnalitées principales sont fonctionnelles depuis le terminal|
- |19/09/26| Implémentation du GUI| L'app possède une interface utilisateur, les 6 fonctionnalitées sont de nouveau implémentée|
+ |19/09/26| Implémentation du GUI| L'app possède une interface utilisateur, 5 fonctionnalitées sont à présent implentée|
 
  --- 
  ## 📌 Prochaines Étapes
