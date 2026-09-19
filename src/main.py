@@ -98,10 +98,10 @@ class App(ctk.CTk):
         titre = ctk.CTkLabel(self.main_frame, text="Rechercher un livre", font=ctk.CTkFont(size=18, weight="bold"))
         titre.pack(pady=20)
 
-        self.entry_recherche = ctk.CTkEntry(self.main_frame, placeholder_text="Titre ou ISBN...", width=300)
+        self.entry_recherche = ctk.CTkEntry(self.main_frame, placeholder_text="Titre ou ISBN :", width=300, height=50)
         self.entry_recherche.pack(pady=10)
 
-        btn_valider = ctk.CTkButton(self.main_frame, text="Valider", command=self.search_button)
+        btn_valider = ctk.CTkButton(self.main_frame, text="Valider", command=self.search_button, width=300, height=50)
         btn_valider.pack(pady=10)
 
         self.label_resultat = ctk.CTkLabel(self.main_frame, text="")
@@ -111,18 +111,91 @@ class App(ctk.CTk):
         self.nettoyer_main_frame()
         titre = ctk.CTkLabel(self.main_frame, text="Ajouter un nouveau livre", font=ctk.CTkFont(size=18, weight="bold"))
         titre.pack(pady=20)
-        # Tu placeras tes CTkEntry pour Titre, Auteur, ISBN ici
+        
+        self.titre_input = ctk.CTkEntry(self.main_frame, placeholder_text="Titre du livre :", width=300, height=50)
+        self.titre_input.pack(pady=10)
+        self.auteur_input = ctk.CTkEntry(self.main_frame, placeholder_text="Nom de l'auteur :", width=300, height=50)
+        self.auteur_input.pack(pady=10)
+        self.cate_input = ctk.CTkEntry(self.main_frame, placeholder_text="Genre du livre :", width=300, height=50)
+        self.cate_input.pack(pady=10)
+        self.isbn_input = ctk.CTkEntry(self.main_frame, placeholder_text="ISBN du livre :", width=300, height=50)
+        self.isbn_input.pack(pady=10)
+
+        btn_valider = ctk.CTkButton(self.main_frame, text="Ajouter", command=self.ajouter_btn, width=300, height=50)
+        btn_valider.pack(pady=10)
+
+        self.ajout_resultat = ctk.CTkLabel(self.main_frame, text="")
+        self.label_resultat.pack(pady=20)
 
     def afficher_suppression(self):
         self.nettoyer_main_frame()
         titre = ctk.CTkLabel(self.main_frame, text="Supprimer un livre", font=ctk.CTkFont(size=18, weight="bold"))
         titre.pack(pady=20)
 
-    # --- Logique métier (actions) ---
+        self.isbnTitre_input = ctk.CTkEntry(self.main_frame, placeholder_text="Titre ou ISBN :", width=300, height=50)
+        self.isbnTitre_input.pack(pady=10)
+
+        btn_valider = ctk.CTkButton(self.main_frame, text="Ajouter", command=self.supprimer_btn, width=300, height=50)
+        btn_valider.pack(pady=10)
+
+        self.supp_resultat = ctk.CTkLabel(self.main_frame, text="")
+        self.supp_resultat.pack(pady=20)
+
+    # --- Logique ---
     def search_button(self):
         recherche = self.entry_recherche.get()
         print(f"Recherche lancée pour : {recherche}")
-        # Ici tu feras ta boucle sur livres_charges pour afficher le résultat dans self.label_resultat
+        trouve = False
+        # affichage des infos sur le livre
+        for un_livre in livres_charges:
+          if un_livre.titre.lower() == recherche or un_livre.isbn == recherche:
+            trouve = True
+            self.label_resultat.configure(text=un_livre.afficher_infos()) #pour modifier le contenu du texte
+        if not trouve :
+          if len(recherche) > 0:
+            self.label_resultat.configure(text=f"Le livre {recherche} n'existe pas.")
+          else :
+            self.label_resultat.configure(text="")
+
+    def ajouter_btn(self):
+      infoTitre = self.titre_input.get()
+      infoAuteur = self.auteur_input.get()
+      infoCate = self.cate_input.get()
+      infoIsbn = self.isbn_input.get()
+      print(f"Ajout du livre {infoTitre}, de {infoAuteur}, {infoCate}, {infoIsbn}")
+      existe = False
+
+      # on vérifie que l'isbn n'est pas déjà dans data.json
+      for un_livre in livres_charges:
+        if un_livre.isbn == infoIsbn:
+          existe = True
+          self.ajout_resultat.configure(text=f"Un livre dont l'ISBN est {infoIsbn} existe déjà.")
+          break
+
+      #Sinon on le supprime (bien mettre hors de la boucle for)
+      if not existe :
+        existe = False
+        livreAjoute = Livre(infoTitre, infoAuteur, infoCate, infoIsbn)
+        livres_charges.append(livreAjoute)
+        sauvegarder()
+        self.ajout_resultat.configure(text=f"Ce livre à bien été ajouté\n({infoTitre} de {infoAuteur} (Genre : {infoCate}, ISBN : {infoIsbn}))")
+
+    def supprimer_btn(self):
+      isbnTitre = self.isbnTitre_input.get()
+      print(f"Suppression du livre {isbnTitre}")
+      existe = False
+
+      for un_livre in livres_charges:
+        if un_livre.isbn == isbnTitre or un_livre.titre == isbnTitre:
+          existe = True
+          confirm = ctk.CTkInputDialog(text=f"Confirmer la suppression (Oui/Non)")
+          confirm_input = confirm.get_input().lower()
+          if confirm_input == "oui":
+            livres_charges.remove(un_livre)
+            sauvegarder()
+
+      if not existe:
+        self.ajout_resultat.configure(text=f"Le livre {isbnTitre} n'existe pas.")
 
 if __name__ == "__main__":
     app = App()
