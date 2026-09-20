@@ -23,7 +23,7 @@ from livre import Livre
 #    json.dump(donnees, fichier, indent=4) # indent=4 pour les retours à la ligne et les indentations
 #
 # opé inverse
-with open("src/data.json", "r", encoding="utf-8") as fichier:
+with open("src/BDD/data.json", "r", encoding="utf-8") as fichier:
     # on met les données chargées depuis le json dans une nvlle variable
     donnees_chargees = json.load(fichier)
 
