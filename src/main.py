@@ -61,6 +61,7 @@ def sauvegarderUser():
     with open("src/BDD/users.json", "w", encoding="utf-8") as fichier:
         json.dump(user_maj, fichier, indent=4)
 
+
 # ---GUI---
 
 # Configuration du thème
@@ -140,6 +141,105 @@ class ToplevelWindowRendu(ctk.CTkToplevel):
         if not existe:
             self.resultatText.configure(text=f"Le livre '{titreISBNinput}' n'existe pas.")
 
+class ToplevelWindowId(ctk.CTkToplevel):
+    def __init__(self, user_id, master=None):
+        super().__init__(master)
+        self.user_id = user_id
+        self.geometry("450x300")
+
+        #recherche de l'utilisateur
+        self.user_obj = None
+        for u in infos_chargees:
+            if u.id == self.user_id:
+                self.user_obj = u
+                break
+        
+        self.main_frame = ctk.CTkFrame(self)
+        self.main_frame.pack(fill="both", expand=True, pady = 10) #on étire et on centre les éléments
+
+        btn_ajouterEmpruntID = ctk.CTkButton(self.main_frame, text="Emprunter un livre", command=self.afficher_empruntID, width=300, height=50)
+        btn_ajouterEmpruntID.pack(pady=10)
+
+        btn_ajouterRenduID = ctk.CTkButton(self.main_frame, text="Rendre un livre", command=self.afficher_renduID, width=300, height=50)
+        btn_ajouterRenduID.pack(pady=10) 
+
+    def nettoyer_main_frame(self):
+        for widget in self.main_frame.winfo_children():
+            widget.destroy()
+
+    def afficher_empruntID(self):
+        self.nettoyer_main_frame()
+
+        titre = ctk.CTkLabel(self.main_frame, text="Emprunter un livre", font=ctk.CTkFont(size=18, weight="bold"))
+        titre.pack(pady=20)
+        
+        self.titreISBNID = ctk.CTkEntry(self.main_frame, placeholder_text="Titre ou ISBN :", width=300, height=50)
+        self.titreISBNID.pack(pady=10)
+
+        confirmBtn = ctk.CTkButton(self.main_frame, text="Confirmer", width=300, height=50, command=self.emprunterLivreID)
+        confirmBtn.pack(pady=10)
+
+        self.resultatText = ctk.CTkLabel(self.main_frame, text="")
+        self.resultatText.pack(pady=10)
+
+    def afficher_renduID(self):
+        self.nettoyer_main_frame()
+
+        titre = ctk.CTkLabel(self.main_frame, text="Rendre un livre", font=ctk.CTkFont(size=18, weight="bold"))
+        titre.pack(pady=20)
+
+
+        self.titreISBNID = ctk.CTkEntry(self.main_frame, placeholder_text="Titre ou ISBN :", width=300, height=50)
+        self.titreISBNID.pack(pady=10)
+
+        confirmBtn = ctk.CTkButton(self.main_frame, text="Confirmer", width=300, height=50, command=self.rendreLivreID)
+        confirmBtn.pack(pady=10)
+
+        self.resultatText = ctk.CTkLabel(self.main_frame, text="")
+        self.resultatText.pack(pady=10)
+
+    # ---Logique---
+
+    def emprunterLivreID(self):
+        existe = False
+        titreISBNID = self.titreISBNID.get().strip()
+        
+        for un_livre in livres_charges:
+            if un_livre.isbn == titreISBNID or un_livre.titre.lower() == titreISBNID.lower():
+                existe = True
+                if un_livre.disponible:
+                    un_livre.disponible = False
+                    un_user.dernierEmprunt = un_livre.titre
+                    sauvegarder()
+                    if self.user_obj:
+                        self.user_obj.dernierEmprunt = un_livre.titre
+                        sauvegarderUser()
+                    self.resultatText.configure(text=f"Le livre '{un_livre.titre}' a été emprunté.")
+                else:
+                    self.resultatText.configure(text=f"Le livre '{un_livre.titre}' est indisponible.")
+                break
+        if not existe:
+            self.resultatText.configure(text=f"Le livre '{titreISBNID}' n'existe pas.")
+
+    def rendreLivreID(self):
+        existe = False
+        titreISBNID = self.titreISBNID.get().strip()
+        for un_livre in livres_charges:
+            if un_livre.isbn == titreISBNID or un_livre.titre.lower() == titreISBNID.lower():
+                existe = True
+                if not un_livre.disponible:
+                    un_livre.disponible = True
+                    un_user.dernierEmprunt = "Aucun"
+                    sauvegarder()
+                    if self.user_obj:
+                        self.user_obj.dernierEmprunt = "Aucun"
+                        sauvegarderUser()
+                        self.resultatText.configure(text=f"Le livre '{un_livre.titre}' a été rendu.")
+                    else:
+                        self.resultatText.configure(text=f"Le livre '{un_livre.titre}' est déjà rendu.")
+                break
+        if not existe:
+            self.resultatText.configure(text=f"Le livre '{titreISBNID}' n'existe pas.")
 
 class App(ctk.CTk):
     def __init__(self):
@@ -395,7 +495,10 @@ class App(ctk.CTk):
 
         # finalement on va ouvrir directement les fenêtre mais on doit en créer des spécifiques car l'id est déjà connu
 
-        
+        if self.toplevel_window is None or not self.toplevel_window.winfo_exists(): #si la fenêtre existe pas ou qu'elle es fermée on l'ouvre
+            self.toplevel_window = ToplevelWindowId(user_id=self.dernier_id, master=self)
+        else:
+            self.toplevel_window.focus() #sinon on focus dessus
     
     def switchTheme(self):
       val = self.switchTheme.get()
