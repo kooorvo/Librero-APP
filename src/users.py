@@ -1,16 +1,18 @@
 import json
 
 class Users():
-    def __init__(self, nom, prenom, emprunts=None):
+    def __init__(self, nom, prenom, id, dernierEmprunt):
         self.nom = nom 
         self.prenom = prenom
-        self.emprunts = emprunts if emprunts is not None else []
+        self.id = int(id)
+        self.dernierEmprunt = dernierEmprunt if len(dernierEmprunt)>0 else "Aucun"
 
     def to_dic(self):
         return{
             "nom":self.nom,
             "prenom": self.prenom,
-            "emprunts" : self.emprunts
+            "id": self.id,
+            "dernier emprunt" : self.dernierEmprunt
         }
 
     @classmethod #s'applique à la classe
@@ -20,5 +22,6 @@ class Users():
         return cls(
             nom=users["nom"],
             prenom=users["prenom"],
-            emprunts=users["emprunts"]
+            id=users["id"],
+            dernierEmprunt=users["dernier emprunt"]
         )

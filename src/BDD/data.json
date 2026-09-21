@@ -15,7 +15,9 @@
         "disponible": true,
         "isbn": "978-2070368228",
         "emprunts": 1,
-        "notes": []
+        "notes": [
+            0.0
+        ]
     },
     {
         "titre": "Harry Potter \u00e0 l'\u00e9cole des sorciers",

@@ -2,12 +2,38 @@
     {
         "nom":"dupond",
         "prenom": "jean",
-        "emprunts" : []
+        "id":0,
+        "dernier emprunt" : "1984"
     },
     {
         "nom":"dupond2",
         "prenom": "jean2",
-        "emprunts" : []
+        "id":1,
+        "dernier emprunt" : "Le petit prince"
+    },
+    {
+        "nom":"dupond3",
+        "prenom": "jean3",
+        "id":2,
+        "dernier emprunt" : ""
+    },
+    {
+        "nom":"dupond4",
+        "prenom": "jean4",
+        "id":3,
+        "dernier emprunt" : ""
+    },
+    {
+        "nom":"dupond5",
+        "prenom": "jean5",
+        "id":4,
+        "dernier emprunt" : ""
+    },
+    {
+        "nom":"dupond6",
+        "prenom": "jean6",
+        "id":5,
+        "dernier emprunt" : ""
     }
 ]
         

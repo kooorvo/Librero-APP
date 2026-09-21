@@ -173,6 +173,9 @@ class App(ctk.CTk):
         self.btn_supprimer = ctk.CTkButton(self.sidebar_frame, text="Supprimer", command=self.afficher_suppression)
         self.btn_supprimer.grid(row=4, column=0, padx=20, pady=10)
 
+        self.btn_comptes = ctk.CTkButton(self.sidebar_frame, text="Comptes", command=self.afficher_comptes)
+        self.btn_comptes.grid(row=5, column=0, padx=20, pady=10)
+
         self.switchTheme = ctk.CTkSwitch(self.sidebar_frame, text="Mode clair", command=self.switchTheme, onvalue=1, offvalue=0)
         self.switchTheme.grid(row=6, column=0, padx=20, pady=10)
 
@@ -262,6 +265,19 @@ class App(ctk.CTk):
 
         self.supp_resultat = ctk.CTkLabel(self.main_frame, text="")
         self.supp_resultat.pack(pady=20)
+
+    def afficher_comptes(self):
+        self.nettoyer_main_frame()
+        titre = ctk.CTkLabel(self.main_frame, text="Comptes", font=ctk.CTkFont(size=18, weight="bold"))
+        titre.pack(pady=20)
+
+        self.menu_déroulant = ctk.CTkScrollableFrame(self.main_frame, width=500, height=300, label_text="Liste des comptes existants")
+        self.menu_déroulant.pack(pady=10)
+
+        for user in infos_chargees:
+            self.btn_compte = ctk.CTkButton(self.menu_déroulant, text=f"{user.nom.upper()} {user.prenom.capitalize()}\n Dernier emprunt : {user.dernierEmprunt}", width=475, height=50, 
+                                            command=lambda u_id=user.id: self.keepInMindAndShow(u_id)) #on utilise une fonction lambda car on doit juste garder l'id et le passer en param à la fonction (chercher sur internet c'est super eft !)
+            self.btn_compte.pack(pady=10)
 
     # --- Logique ---
     def search_button(self):
@@ -372,6 +388,15 @@ class App(ctk.CTk):
       if not existe:
         self.ajout_resultat.configure(text=f"Le livre {isbnTitre} n'existe pas.")
 
+    def keepInMindAndShow(self, user_id):
+        self.dernier_id = user_id
+        print(f"id sauvé : {self.dernier_id}")
+        #self.afficher_emprunts()
+
+        # finalement on va ouvrir directement les fenêtre mais on doit en créer des spécifiques car l'id est déjà connu
+
+        
+    
     def switchTheme(self):
       val = self.switchTheme.get()
       if val:
