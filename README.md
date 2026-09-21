@@ -15,7 +15,7 @@ Deux versions du logiciel existe :
 - _Librero CLI_, qui s'utilise intégralement dans l'interpréteur de commande (dit *cmd*)
 - _Librero GUI_, qui possède une interface utilisateur. (en "travaux")
 
-Vous pouvez retrouver l'historique des modifications dans le fichier `patch_note.md` (https://github.com/kooorvo/Livres/blob/a7b6a19865f4ae445fddadebbdcb0e19629b6ffd/patch_note.md)
+Vous pouvez retrouver l'historique des modifications dans le fichier [patch_note](https://github.com/kooorvo/Livres/blob/a7b6a19865f4ae445fddadebbdcb0e19629b6ffd/patch_note.md), ou sur le [wiki](https://github.com/kooorvo/Librero-APP/wiki)
 
 <br>
 
