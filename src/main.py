@@ -156,6 +156,9 @@ class App(ctk.CTk):
         self.btn_supprimer = ctk.CTkButton(self.sidebar_frame, text="Supprimer", command=self.afficher_suppression)
         self.btn_supprimer.grid(row=4, column=0, padx=20, pady=10)
 
+        self.switchTheme = ctk.CTkSwitch(self.sidebar_frame, text="Mode clair", command=self.switchTheme, onvalue=1, offvalue=0)
+        self.switchTheme.grid(row=6, column=0, padx=20, pady=10)
+
         # --- Zone Principale ---
         self.main_frame = ctk.CTkFrame(self, corner_radius=10)
         self.main_frame.grid(row=0, column=1, padx=20, pady=20, sticky="nsew")
