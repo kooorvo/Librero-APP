@@ -3,6 +3,7 @@ import customtkinter as ctk
 import pyperclip as pc
 
 from livre import Livre
+from users import Users
 
 #livre1 = Livre("Le Petit Prince", "Antoine de Saint-Exupéry", "conte", "9783140464079")
 #livre2 = Livre("1984", "George Orwell", "fiction", "978-2070368228")
@@ -10,8 +11,8 @@ from livre import Livre
 ## on met les livres dans une liste pour les exporter
 #livres = [livre1, livre2]
 #
-#donnees = []
-#for livre in livres:
+# donnees = []
+# for livre in livres:
 #    # on transforme le livre en dico avec la fct to_dic
 #    dic_livre = livre.to_dic()
 #    # on l'ajoute au dico
@@ -39,12 +40,28 @@ def sauvegarder():
   for un_livre in livres_charges:
     nvdic = un_livre.to_dic()
     donnees_maj.append(nvdic)
-  with open("src/data.json", "w", encoding="utf-8") as fichier:
+  with open("src/BDD/data.json", "w", encoding="utf-8") as fichier:
     json.dump(donnees_maj, fichier, indent=4) 
 
-# ---GUI---
+# sauvegarde users
+with open ("src/BDD/users.json", "r", encoding="utf-8") as fichier:
+   user_charges = json.load(fichier)
 
-# généré par ia(gemini)
+infos_chargees = []
+for utilisateurs in user_charges:
+   un_user = Users.from_dic(utilisateurs)
+   infos_chargees.append(un_user)
+
+def sauvegarderUser():
+    user_maj = []
+    for un_user in infos_chargees:
+        nvdic = un_user.to_dic()
+        user_maj.append(nvdic)
+
+    with open("src/BDD/users.json", "w", encoding="utf-8") as fichier:
+        json.dump(user_maj, fichier, indent=4)
+
+# ---GUI---
 
 # Configuration du thème
 ctk.set_appearance_mode("Dark")

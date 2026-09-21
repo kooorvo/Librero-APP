@@ -25,7 +25,7 @@ Vous pouvez retrouver l'historique des modifications dans le fichier `patch_note
 <br>
 <br>
 <br><br>
-Une ia générative à été utilisée dans la création de cette application, notamment pour coder l'implémentation de l'interface utilisateur (uniquement le partie recherche pour que je puisse comprendre le fonctionnement de la librairie) et pour corriger certains bugs.
+Une ia générative à été utilisée dans la création de cette application pour corriger certains bugs.
 <br><br>
 
 ###### Made by Koorvo

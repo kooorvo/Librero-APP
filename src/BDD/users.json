@@ -1,0 +1,13 @@
+[
+    {
+        "nom":"dupond",
+        "prenom": "jean",
+        "emprunts" : []
+    },
+    {
+        "nom":"dupond2",
+        "prenom": "jean2",
+        "emprunts" : []
+    }
+]
+        
