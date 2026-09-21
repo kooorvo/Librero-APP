@@ -26,6 +26,7 @@ Vous pouvez retrouver l'historique des modifications dans le fichier `patch_note
 <img width="896" height="627" alt="Capture d&#39;écran 2026-09-21 232133" src="https://github.com/user-attachments/assets/b08394f8-1ccf-476e-8095-161051fe33c4" />
 (mode clair)
 <br>
+
 ## Installation
 [bientôt]
 <br>
