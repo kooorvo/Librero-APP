@@ -4,6 +4,7 @@ import pyperclip as pc
 
 from livre import Livre
 from users import Users
+from settings import Param
 
 #livre1 = Livre("Le Petit Prince", "Antoine de Saint-Exupéry", "conte", "9783140464079")
 #livre2 = Livre("1984", "George Orwell", "fiction", "978-2070368228")
@@ -61,11 +62,39 @@ def sauvegarderUser():
     with open("src/BDD/users.json", "w", encoding="utf-8") as fichier:
         json.dump(user_maj, fichier, indent=4)
 
+# sauvegarde des paramètres
 
+with open("src/BDD/settings.json", "r", encoding="utf-8") as fichier:
+    donnees_json = json.load(fichier)
+
+sett_charges = []
+for setts in donnees_json:
+    un_sett = Param.from_dic(setts)
+    sett_charges.append(un_sett)
+
+def sauvegarderSetts():
+    sett_maj = []
+    for un_sett in sett_charges:
+        nvdic = un_sett.to_dic()
+        sett_maj.append(nvdic)
+
+    with open("src/BDD/settings.json", "w", encoding="utf-8") as fichier:
+        json.dump(sett_maj, fichier, indent=4)
 # ---GUI---
 
 # Configuration du thème
-ctk.set_appearance_mode("Dark")
+
+if sett_charges:
+    theme_sauvegarde = sett_charges[0].theme
+else : 
+    theme_sauvegarde = "dark"
+
+if theme_sauvegarde == "light":
+    texte_option = "Thème clair"
+else:
+    texte_option = "Thème sombre"
+
+ctk.set_appearance_mode(theme_sauvegarde)
 ctk.set_default_color_theme("blue")
 
 # Fenêtre secondaires
@@ -73,13 +102,16 @@ ctk.set_default_color_theme("blue")
 class ToplevelWindowEmprunt(ctk.CTkToplevel):
     def __init__(self, master=None):
         super().__init__(master)
-        self.geometry("450x300")
+        self.geometry("450x350")
 
         titre = ctk.CTkLabel(self, text="Emprunter un livre", font=ctk.CTkFont(size=18, weight="bold"))
         titre.pack(pady=20)
 
         self.titreISBN = ctk.CTkEntry(self, placeholder_text="Titre ou ISBN :", width=300, height=50)
         self.titreISBN.pack(pady=10)
+
+        self.utilisateur = ctk.CTkEntry(self, placeholder_text="Nom de l'emprunteur :", width=300, height=50)
+        self.utilisateur.pack(pady=10)
 
         confirmBtn = ctk.CTkButton(self, text="Confirmer", width=300, height=50, command=self.emprunterLivre)
         confirmBtn.pack(pady=10)
@@ -90,6 +122,13 @@ class ToplevelWindowEmprunt(ctk.CTkToplevel):
     def emprunterLivre(self):
         existe = False
         titreISBNinput = self.titreISBN.get().strip()
+        user = self.utilisateur.get().lower()
+
+        self.user_obj = None
+        for u in infos_chargees:
+            if u.nom.lower() == user:
+                self.user_obj = u
+                break
 
         for un_livre in livres_charges:
             if un_livre.isbn == titreISBNinput or un_livre.titre.lower() == titreISBNinput.lower():
@@ -97,6 +136,9 @@ class ToplevelWindowEmprunt(ctk.CTkToplevel):
                 if un_livre.disponible:
                     un_livre.disponible = False
                     sauvegarder()
+                    if self.user_obj:
+                        self.user_obj.dernierEmprunt = un_livre.titre
+                        sauvegarderUser()
                     self.resultatText.configure(text=f"Le livre '{un_livre.titre}' a été emprunté.")
                 else:
                     self.resultatText.configure(text=f"Le livre '{un_livre.titre}' est indisponible.")
@@ -109,7 +151,7 @@ class ToplevelWindowEmprunt(ctk.CTkToplevel):
 class ToplevelWindowRendu(ctk.CTkToplevel):
     def __init__(self, master=None):
         super().__init__(master)
-        self.geometry("450x300")
+        self.geometry("450x350")
 
         titre = ctk.CTkLabel(self, text="Rendre un livre", font=ctk.CTkFont(size=18, weight="bold"))
         titre.pack(pady=20)
@@ -117,8 +159,13 @@ class ToplevelWindowRendu(ctk.CTkToplevel):
         self.titreISBN = ctk.CTkEntry(self, placeholder_text="Titre ou ISBN :", width=300, height=50)
         self.titreISBN.pack(pady=10)
 
+        self.utilisateur = ctk.CTkEntry(self, placeholder_text="Nom de l'emprunteur :", width=300, height=50)
+        self.utilisateur.pack(pady=10)
+        
         confirmBtn = ctk.CTkButton(self, text="Confirmer", width=300, height=50, command=self.rendreLivre)
         confirmBtn.pack(pady=10)
+
+        
 
         self.resultatText = ctk.CTkLabel(self, text="")
         self.resultatText.pack(pady=10)
@@ -126,6 +173,13 @@ class ToplevelWindowRendu(ctk.CTkToplevel):
     def rendreLivre(self):
         existe = False
         titreISBNinput = self.titreISBN.get().strip()
+        user = self.utilisateur.get().lower()
+
+        self.user_obj = None
+        for u in infos_chargees:
+            if u.nom.lower() == user:
+                self.user_obj = u
+                break
 
         for un_livre in livres_charges:
             if un_livre.isbn == titreISBNinput or un_livre.titre.lower() == titreISBNinput.lower():
@@ -133,6 +187,9 @@ class ToplevelWindowRendu(ctk.CTkToplevel):
                 if not un_livre.disponible:
                     un_livre.disponible = True
                     sauvegarder()
+                    if self.user_obj:
+                        self.user_obj.dernierEmprunt = "Aucun"
+                        sauvegarderUser()
                     self.resultatText.configure(text=f"Le livre '{un_livre.titre}' a été rendu.")
                 else:
                     self.resultatText.configure(text=f"Le livre '{un_livre.titre}' est déjà disponible.")
@@ -276,8 +333,9 @@ class App(ctk.CTk):
         self.btn_comptes = ctk.CTkButton(self.sidebar_frame, text="Comptes", command=self.afficher_comptes)
         self.btn_comptes.grid(row=5, column=0, padx=20, pady=10)
 
-        self.switchTheme = ctk.CTkSwitch(self.sidebar_frame, text="Mode clair", command=self.switchTheme, onvalue=1, offvalue=0)
+        self.switchTheme = ctk.CTkOptionMenu(self.sidebar_frame, command=self.switchTheme, values=["Thème sombre", "Thème clair"])
         self.switchTheme.grid(row=6, column=0, padx=20, pady=10)
+        self.switchTheme.set(texte_option)
 
         # --- Zone Principale ---
         self.main_frame = ctk.CTkFrame(self, corner_radius=10)
@@ -500,12 +558,24 @@ class App(ctk.CTk):
         else:
             self.toplevel_window.focus() #sinon on focus dessus
     
-    def switchTheme(self):
-      val = self.switchTheme.get()
-      if val:
-        ctk.set_appearance_mode("light")
-      else : 
-        ctk.set_appearance_mode("dark")
+    def switchTheme(self, value=None): # value=None pour accepeter la value de l'optionmenu
+        if value is None:
+            value = self.switchTheme.get()
+
+        print(value)
+
+        if value == "Thème clair":
+            mode = "light"
+        else : 
+            mode = "dark"
+
+        ctk.set_appearance_mode(mode)
+
+        if sett_charges:
+            sett_charges[0].theme = mode
+            
+        sauvegarderSetts()
+
 
 if __name__ == "__main__":
     app = App()
