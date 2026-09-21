@@ -1,7 +1,7 @@
 [
     {
         "titre": "Le Petit Prince",
-        "auteur": "Antoine de Saint-Exup\u00e9ry",
+        "auteur": "Antoine de Saint-Exupéry",
         "categorie": "conte",
         "disponible": true,
         "isbn": "9783140464079",
@@ -15,16 +15,1040 @@
         "disponible": true,
         "isbn": "978-2070368228",
         "emprunts": 1,
-        "notes": [
-            0.0
-        ]
+        "notes": []
     },
     {
-        "titre": "Harry Potter \u00e0 l'\u00e9cole des sorciers",
+        "titre": "Harry Potter à l'école des sorciers",
         "auteur": "J.K. Rowling",
         "categorie": "fantastisque",
         "disponible": true,
         "isbn": "978-2070584628",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "L'Étranger",
+        "auteur": "Albert Camus",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "La Peste",
+        "auteur": "Albert Camus",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Le Mythe de Sisyphe",
+        "auteur": "Albert Camus",
+        "categorie": "essai",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Les Misérables",
+        "auteur": "Victor Hugo",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Notre-Dame de Paris",
+        "auteur": "Victor Hugo",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Le Comte de Monte-Cristo",
+        "auteur": "Alexandre Dumas",
+        "categorie": "aventure",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Les Trois Mousquetaires",
+        "auteur": "Alexandre Dumas",
+        "categorie": "aventure",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Madame Bovary",
+        "auteur": "Gustave Flaubert",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Le Rouge et le Noir",
+        "auteur": "Stendhal",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Germinal",
+        "auteur": "Émile Zola",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Au bonheur des dames",
+        "auteur": "Émile Zola",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Bel-Ami",
+        "auteur": "Guy de Maupassant",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Le Horla",
+        "auteur": "Guy de Maupassant",
+        "categorie": "fantastique",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Candide",
+        "auteur": "Voltaire",
+        "categorie": "conte philosophique",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Les Fleurs du mal",
+        "auteur": "Charles Baudelaire",
+        "categorie": "poésie",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Cyrano de Bergerac",
+        "auteur": "Edmond Rostand",
+        "categorie": "théâtre",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Phèdre",
+        "auteur": "Jean Racine",
+        "categorie": "théâtre",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Le Cid",
+        "auteur": "Pierre Corneille",
+        "categorie": "théâtre",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "L'Avare",
+        "auteur": "Molière",
+        "categorie": "théâtre",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Le Malade imaginaire",
+        "auteur": "Molière",
+        "categorie": "théâtre",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Gargantua",
+        "auteur": "François Rabelais",
+        "categorie": "satire",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "La Princesse de Clèves",
+        "auteur": "Madame de Lafayette",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Les Liaisons dangereuses",
+        "auteur": "Pierre Choderlos de Laclos",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Vingt mille lieues sous les mers",
+        "auteur": "Jules Verne",
+        "categorie": "aventure",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Le Tour du monde en quatre-vingts jours",
+        "auteur": "Jules Verne",
+        "categorie": "aventure",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Voyage au centre de la Terre",
+        "auteur": "Jules Verne",
+        "categorie": "aventure",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "L'Île mystérieuse",
+        "auteur": "Jules Verne",
+        "categorie": "aventure",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Dracula",
+        "auteur": "Bram Stoker",
+        "categorie": "horreur",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Frankenstein",
+        "auteur": "Mary Shelley",
+        "categorie": "gothique",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "L'Appel de la forêt",
+        "auteur": "Jack London",
+        "categorie": "aventure",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Croc-Blanc",
+        "auteur": "Jack London",
+        "categorie": "aventure",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Le Vieil Homme et la Mer",
+        "auteur": "Ernest Hemingway",
+        "categorie": "fiction",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Pour qui sonne le glas",
+        "auteur": "Ernest Hemingway",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Orgueil et Préjugés",
+        "auteur": "Jane Austen",
+        "categorie": "romance",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Jane Eyre",
+        "auteur": "Charlotte Brontë",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Les Hauts de Hurlevent",
+        "auteur": "Emily Brontë",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Les Quatre Filles du docteur March",
+        "auteur": "Louisa May Alcott",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Le Portrait de Dorian Gray",
+        "auteur": "Oscar Wilde",
+        "categorie": "fantastique",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Oliver Twist",
+        "auteur": "Charles Dickens",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "David Copperfield",
+        "auteur": "Charles Dickens",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Un chant de Noël",
+        "auteur": "Charles Dickens",
+        "categorie": "conte",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Le Meilleur des mondes",
+        "auteur": "Aldous Huxley",
+        "categorie": "science-fiction",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "La Ferme des animaux",
+        "auteur": "George Orwell",
+        "categorie": "satire",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Fahrenheit 451",
+        "auteur": "Ray Bradbury",
+        "categorie": "science-fiction",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Des souris et des hommes",
+        "auteur": "John Steinbeck",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Les Raisins de la colère",
+        "auteur": "John Steinbeck",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Ne tirez pas sur l'oiseau moqueur",
+        "auteur": "Harper Lee",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Gatsby le Magnifique",
+        "auteur": "F. Scott Fitzgerald",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Moby-Dick",
+        "auteur": "Herman Melville",
+        "categorie": "aventure",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Le Maître et Marguerite",
+        "auteur": "Mikhaïl Boulgakov",
+        "categorie": "fantastique",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Crime et Châtiment",
+        "auteur": "Fiodor Dostoïevski",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "L'Idiot",
+        "auteur": "Fiodor Dostoïevski",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Les Frères Karamazov",
+        "auteur": "Fiodor Dostoïevski",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Anna Karénine",
+        "auteur": "Léon Tolstoï",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Guerre et Paix",
+        "auteur": "Léon Tolstoï",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "La Métamorphose",
+        "auteur": "Franz Kafka",
+        "categorie": "fantastique",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Le Procès",
+        "auteur": "Franz Kafka",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Cent ans de solitude",
+        "auteur": "Gabriel García Márquez",
+        "categorie": "réalisme magique",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "L'Amour aux temps du choléra",
+        "auteur": "Gabriel García Márquez",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Don Quichotte",
+        "auteur": "Miguel de Cervantès",
+        "categorie": "aventure",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Le Nom de la rose",
+        "auteur": "Umberto Eco",
+        "categorie": "historique",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Si c'est un homme",
+        "auteur": "Primo Levi",
+        "categorie": "témoignage",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Le Journal d'Anne Frank",
+        "auteur": "Anne Frank",
+        "categorie": "témoignage",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Sapiens",
+        "auteur": "Yuval Noah Harari",
+        "categorie": "histoire",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Homo Deus",
+        "auteur": "Yuval Noah Harari",
+        "categorie": "essai",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Une brève histoire du temps",
+        "auteur": "Stephen Hawking",
+        "categorie": "science",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Cosmos",
+        "auteur": "Carl Sagan",
+        "categorie": "science",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Le Prince",
+        "auteur": "Nicolas Machiavel",
+        "categorie": "politique",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "L'Art de la guerre",
+        "auteur": "Sun Tzu",
+        "categorie": "stratégie",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Ainsi parlait Zarathoustra",
+        "auteur": "Friedrich Nietzsche",
+        "categorie": "philosophie",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Le Banquet",
+        "auteur": "Platon",
+        "categorie": "philosophie",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Méditations",
+        "auteur": "Marc Aurèle",
+        "categorie": "philosophie",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Discours de la méthode",
+        "auteur": "René Descartes",
+        "categorie": "philosophie",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Du contrat social",
+        "auteur": "Jean-Jacques Rousseau",
+        "categorie": "philosophie",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "L'Homme révolté",
+        "auteur": "Albert Camus",
+        "categorie": "essai",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Le Deuxième Sexe",
+        "auteur": "Simone de Beauvoir",
+        "categorie": "essai",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "La Société du spectacle",
+        "auteur": "Guy Debord",
+        "categorie": "essai",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Dune",
+        "auteur": "Frank Herbert",
+        "categorie": "science-fiction",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Fondation",
+        "auteur": "Isaac Asimov",
+        "categorie": "science-fiction",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Les Robots",
+        "auteur": "Isaac Asimov",
+        "categorie": "science-fiction",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Le Guide du voyageur galactique",
+        "auteur": "Douglas Adams",
+        "categorie": "science-fiction",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Neuromancien",
+        "auteur": "William Gibson",
+        "categorie": "science-fiction",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "La Main gauche de la nuit",
+        "auteur": "Ursula K. Le Guin",
+        "categorie": "science-fiction",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Le Cycle de Terremer",
+        "auteur": "Ursula K. Le Guin",
+        "categorie": "fantasy",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "La Communauté de l'Anneau",
+        "auteur": "J.R.R. Tolkien",
+        "categorie": "fantasy",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Les Deux Tours",
+        "auteur": "J.R.R. Tolkien",
+        "categorie": "fantasy",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Le Retour du Roi",
+        "auteur": "J.R.R. Tolkien",
+        "categorie": "fantasy",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Le Hobbit",
+        "auteur": "J.R.R. Tolkien",
+        "categorie": "fantasy",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "American Gods",
+        "auteur": "Neil Gaiman",
+        "categorie": "fantasy",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Coraline",
+        "auteur": "Neil Gaiman",
+        "categorie": "fantastique",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "La Horde du Contrevent",
+        "auteur": "Alain Damasio",
+        "categorie": "science-fiction",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Ravage",
+        "auteur": "René Barjavel",
+        "categorie": "science-fiction",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Le Passe-muraille",
+        "auteur": "Marcel Aymé",
+        "categorie": "fantastique",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "L'Écume des jours",
+        "auteur": "Boris Vian",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Bonjour tristesse",
+        "auteur": "Françoise Sagan",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "La Vie devant soi",
+        "auteur": "Romain Gary",
+        "categorie": "roman",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "En attendant Godot",
+        "auteur": "Samuel Beckett",
+        "categorie": "théâtre",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Le Mariage de Figaro",
+        "auteur": "Beaumarchais",
+        "categorie": "théâtre",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Antigone",
+        "auteur": "Jean Anouilh",
+        "categorie": "théâtre",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "La Cantatrice chauve",
+        "auteur": "Eugène Ionesco",
+        "categorie": "théâtre",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Les Justes",
+        "auteur": "Albert Camus",
+        "categorie": "théâtre",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Huis clos",
+        "auteur": "Jean-Paul Sartre",
+        "categorie": "théâtre",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "La Nausée",
+        "auteur": "Jean-Paul Sartre",
+        "categorie": "philosophique",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "L'Alchimiste",
+        "auteur": "Paulo Coelho",
+        "categorie": "fiction",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Le Seigneur des anneaux",
+        "auteur": "J.R.R. Tolkien",
+        "categorie": "fantasy",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "La Route",
+        "auteur": "Cormac McCarthy",
+        "categorie": "dystopie",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Le Livre des étoiles",
+        "auteur": "Erik L'Homme",
+        "categorie": "fantasy",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Artemis Fowl",
+        "auteur": "Eoin Colfer",
+        "categorie": "fantasy",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Eragon",
+        "auteur": "Christopher Paolini",
+        "categorie": "fantasy",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Hunger Games",
+        "auteur": "Suzanne Collins",
+        "categorie": "dystopie",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Divergente",
+        "auteur": "Veronica Roth",
+        "categorie": "dystopie",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Percy Jackson : Le Voleur de foudre",
+        "auteur": "Rick Riordan",
+        "categorie": "fantasy",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "Le Labyrinthe",
+        "auteur": "James Dashner",
+        "categorie": "science-fiction",
+        "disponible": true,
+        "isbn": "Non renseigné",
+        "emprunts": 0,
+        "notes": []
+    },
+    {
+        "titre": "La Passe-miroir : Les Fiancés de l'hiver",
+        "auteur": "Christelle Dabos",
+        "categorie": "fantasy",
+        "disponible": true,
+        "isbn": "Non renseigné",
         "emprunts": 0,
         "notes": []
     }

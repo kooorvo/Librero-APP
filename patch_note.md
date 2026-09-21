@@ -12,9 +12,8 @@
  ## 📌 Prochaines Étapes
  - [x] Ajout d'un switch pour passer du mode clair au mode sombre
  - [x] Ajouter la base de donnée regroupant les différents emprunteurs
- - [ ] Rendre le programme executable
- - [ ] Création d'un site web
+ - [ ] Rendre le programme executable ?
+ - [ ] Refonte de système de recherche ?
  - [x] Ajouter la possibilitée de copier les résultats
- - [ ] Ajouter la possibilité de créer des utiisateurs
+ - [ ] Ajouter la possibilité de créer des utiisateurs (le seul sûr d'être fait)
  - [x] Sauvegarder les paramètres comme le thème
- - [ ] Coder un menu paramètre
