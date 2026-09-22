@@ -298,6 +298,38 @@ class ToplevelWindowId(ctk.CTkToplevel):
         if not existe:
             self.resultatText.configure(text=f"Le livre '{titreISBNID}' n'existe pas.")
 
+class ToplevelWindowUserCreation(ctk.CTkToplevel):
+    def __init__(self):
+        super().__init__()
+        self.geometry("450x300")
+
+        self.main_frame = ctk.CTkFrame(self)
+        self.main_frame.pack(fill="both", expand=True, pady = 10)
+
+        self.title = ctk.CTkLabel(self.main_frame, text="Créer un nouvel utilisateur", font=ctk.CTkFont(size=18, weight="bold"))
+        self.title.pack(pady=20)
+
+        self.nom_input = ctk.CTkEntry(self.main_frame, placeholder_text="Entrer le nom de l'utilisateur :", width=300, height=50)
+        self.nom_input.pack(pady=10)
+
+        self.prenom_input = ctk.CTkEntry(self.main_frame, placeholder_text="Entrer le prénom de l'utilisateur :", width=300, height=50)
+        self.prenom_input.pack(pady=10)
+
+        confirmBtn = ctk.CTkButton(self.main_frame, text="Confirmer", width=300, height=50, command=self.ajouter_user)
+        confirmBtn.pack(pady=10)
+
+
+    def ajouter_user(self):
+        self.nom = self.nom_input.get().lower()
+        self.prenom = self.prenom_input.get().lower()
+
+        nvl_user = Users(self.nom, self.prenom, 0, "Aucun")
+        infos_chargees.append(nvl_user)
+        sauvegarderUser()
+
+
+# App
+
 class App(ctk.CTk):
     def __init__(self):
         super().__init__()
@@ -437,6 +469,9 @@ class App(ctk.CTk):
                                             command=lambda u_id=user.id: self.keepInMindAndShow(u_id)) #on utilise une fonction lambda car on doit juste garder l'id et le passer en param à la fonction (chercher sur internet c'est super eft !)
             self.btn_compte.pack(pady=10)
 
+        self.bnt_ajouter_compte = ctk.CTkButton(self.main_frame, text="Ajouter un compte", width=300, height=50, command=self.ajouter_compte)
+        self.bnt_ajouter_compte.pack(pady=10)
+
     # --- Logique ---
     def search_button(self):
         recherche = self.entry_recherche.get().strip()
@@ -557,6 +592,12 @@ class App(ctk.CTk):
             self.toplevel_window = ToplevelWindowId(user_id=self.dernier_id, master=self)
         else:
             self.toplevel_window.focus() #sinon on focus dessus
+
+    def ajouter_compte(self):
+        if self.toplevel_window is None or not self.toplevel_window.winfo_exists(): #si la fenêtre existe pas ou qu'elle es fermée on l'ouvre
+            self.toplevel_window = ToplevelWindowUserCreation()
+        else:
+            self.toplevel_window.focus()
     
     def switchTheme(self, value=None): # value=None pour accepeter la value de l'optionmenu
         if value is None:
